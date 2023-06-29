@@ -18,33 +18,39 @@
       .hobby {
         color: blue;
       }
+
+      .hobby-name {
+        color: orange;
+      }
     </style>
   </head>
   <body>
     <div class="container border border-4 border-info">
       <form action="/user_registration_page.php">
         <h3 class="title my-3 text-center text-white py-2">SỞ THÍCH CỦA BẠN</h3>
-        <div class="row mb-3">
-          <div class="col-2 text-end">
+        <div class="row mb-3 justify-content-center">
+          <div class="col-12 col-md-2 text-center">
             <label class="name" for="name"><b>Họ và tên </b></label>
           </div>
-          <div class="col-10"><input type="text" id="name" name="name" /></div>
+          <div class="col-12 col-md-10">
+            <input type="text" id="name" name="name" />
+          </div>
         </div>
-        <div class="row mb-3">
-          <div class="col-2 text-end">
+        <div class="row mb-3 justify-content-between">
+          <div class="col-12 col-md-2 text-center">
             <label class="email" for="email"><b>Email </b></label>
           </div>
-          <div class="col-10">
+          <div class="col-12 col-md-10">
             <input type="email" id="email" name="email" />
           </div>
         </div>
         <div class="row mb-3">
-          <div class="col-2 text-end">
+          <div class="col-12 col-md-2 text-center">
             <label class="hobby" for="email"><b>Sở thích </b></label>
           </div>
-          <div class="col-10">
+          <div class="col-12 col-md-10 hobby-name">
             <div class="row">
-              <div class="col-2">
+              <div class="col-3">
                 <input
                   type="checkbox"
                   id="hobby1"
@@ -67,7 +73,7 @@
                 />
                 <label for="hobby3"> Du lịch</label><br />
               </div>
-              <div class="col-2">
+              <div class="col-3">
                 <input
                   type="checkbox"
                   id="hobby4"
@@ -83,7 +89,7 @@
                 />
                 <label for="hobby5"> Chơi game</label>
               </div>
-              <div class="col-2">
+              <div class="col-3">
                 <input
                   type="checkbox"
                   id="hobby6"
@@ -102,11 +108,12 @@
             </div>
           </div>
         </div>
-        <div class="row justify-content-center">
-          <div class="col-1 me-2">
+        <div class="row justify-content-start">
+          <div class="col-12 col-md-2"></div>
+          <div class="col-md-1 me-4">
             <input class="shadow" type="submit" value="Gửi thông tin" />
           </div>
-          <div class="col-1">
+          <div class="col-md-1 col-offset-8 ms-4">
             <input class="shadow" type="submit" value="Nhập lại" />
           </div>
         </div>
