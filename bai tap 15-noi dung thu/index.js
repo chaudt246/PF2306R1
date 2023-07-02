@@ -35,5 +35,4 @@ Anh yêu thương, đừng bao giờ rời xa em nữa nhé. Yêu anh rất nhi�
 <br>
 <br>
 <br>
-${inputLocation}, ngày ${inputDate} tháng ${inputMonth} năm ${inputYear}.
-`);
+${inputLocation}, ngày ${inputDate} tháng ${inputMonth} năm ${inputYear}.`);
