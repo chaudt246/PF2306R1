@@ -1,0 +1,22 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello</title>
+  </head>
+  <body>
+    <h5>Nhập số</h5>
+    <input type="number" id="numberInMessage" min="0" />
+    <button type="button" onclick="showMessage();">Kiểm tra</button>
+    <script>
+      function showMessage() {
+        let evenNumber = parseInt(
+          document.getElementById("numberInMessage").value
+        );
+        evenNumber % 2 == 0 && evenNumber > 0
+          ? alert(`${evenNumber} là một số chẵn`)
+          : alert(`${evenNumber} không phải là một số chẵn`);
+      }
+    </script>
+  </body>
+</html>
