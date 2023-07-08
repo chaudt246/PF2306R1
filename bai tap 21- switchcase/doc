@@ -1,0 +1,47 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //check whether number of days in a month
+      let month;
+      let jan = 1,
+        feb = 2,
+        march = 3,
+        april = 4,
+        may = 5,
+        june = 6,
+        july = 7,
+        aug = 8,
+        sep = 9,
+        oct = 10,
+        nov = 11,
+        dec = 12;
+      switch (month) {
+        case jan:
+        case march:
+        case may:
+        case july:
+        case aug:
+        case dec:
+          alert("31");
+          break;
+        case feb:
+          alert("28 or 29 depending on leap year");
+          break;
+        case april:
+        case june:
+        case sep:
+        case nov:
+          alert("30");
+          break;
+        default:
+          alert("unknown");
+          break;
+      }
+    </script>
+  </body>
+</html>

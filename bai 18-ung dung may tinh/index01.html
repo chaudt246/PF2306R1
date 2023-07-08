@@ -1,0 +1,55 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <h3>Calculator</h3>
+    <br />
+    <input type="number" id="numberOne" />
+    <input type="number" id="numberTwo" /><br /><br />
+    <button id="add" onclick="calAdd" value="+">+</button>
+    <button id="sub" onclick="calSub" value="-">-</button>
+    <button id="multi" onclick="calMul" value="X">X</button>
+    <button id="divide" onclick="calDiv" value="/">/</button><br />
+    <p id="calResult"></p>
+    <script>
+      let numberOne = document.getElementById("numberOne").value;
+      let numberTwo = document.getElementById("numberTwo").value;
+      let calAdd = document.getElementById("add");
+      calAdd.addEventListener("click", calAdd);
+      function calAdd() {
+        var
+        alert("add");
+        // document.getElementById("calResult").innerHTML = `Result Addition: ${
+        //   numberOne + numberTwo
+        // }`;
+      }
+
+      let calSub = document.getElementById("sub");
+      calSub.addEventListener("click", calSub);
+      function calSub() {
+        document.getElementById("calResult").innerHTML = `Result Subtraction: ${
+          numberOne - numberTwo
+        }`;
+      }
+
+      let calMul = document.getElementById("multi");
+      calMul.addEventListener("click", calMul);
+      function calMul() {
+        document.getElementById(
+          "calResult"
+        ).innerHTML = `Result Muliplication: ${numberOne * numberTwo}`;
+      }
+
+      let calDiv = document.getElementById("divide");
+      calDiv.addEventListener("click", calAdd);
+      function calDiv() {
+        document.getElementById("calResult").innerHTML = `Result Division: ${
+          numberOne / numberTwo
+        }`;
+      }
+    </script>
+  </body>
+</html>
