@@ -1,0 +1,98 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+        <input type="number" min="0" onchange="getYear(this)">
+        <button id="checkBtn" onclick="checkLunarYear()">Tính năm âm lịch</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        let year, can, chi, lunarYearCan, lunarYearChi;
+        function getYear(obj) {
+            year = Number(obj.value); 
+            can = Math.floor(year % 10);   
+            chi = Math.floor(year % 12);       
+        }
+
+             
+        checkBtn.addEventListener("click", function (){            
+            switch (true) {
+                case (can==0):
+                    lunarYearCan = `Canh`;
+                    break;
+                case (can==1):
+                    lunarYearCan = `Tân`;
+                    break;
+                case (can==2):
+                    lunarYearCan = `Nhâm`;
+                    break;
+                case (can==3):
+                    lunarYearCan = `Quý`;
+                    break;
+                case (can==4):
+                    lunarYearCan = `Giáp`;
+                    break;
+                case (can==5):
+                    lunarYearCan = `Ất`;
+                    break;
+                case (can==6):
+                    lunarYearCan = `Bính`;
+                    break;
+                case (can==7):
+                    lunarYearCan = `Đinh`;
+                    break;
+                case (can==8):
+                    lunarYearCan = `Mậu`;
+                    break;
+                case (can==9):
+                    lunarYearCan = `Kỷ`;
+                    break;
+            }      
+
+            switch (true) {
+                case (chi==0):
+                    lunarYearChi = `Thân`;
+                    break;
+                case (chi==1):
+                    lunarYearChi = `Dậu`;
+                    break;
+                case (chi==2):
+                    lunarYearChi = `Tuất`;
+                    break;
+                case (chi==3):
+                    lunarYearChi = `Hợi`;
+                    break;
+                case (chi==4):
+                    lunarYearChi = `Tý`;
+                    break;
+                case (chi==5):
+                    lunarYearChi = `Sửu`;
+                    break;
+                case (chi==6):
+                    lunarYearChi = `Dần`;
+                    break;
+                case (chi==7):
+                    lunarYearChi = `Mẹo`;
+                    break;
+                case (chi==8):
+                    lunarYearChi = `Thìn`;
+                    break;
+                case (chi==9):
+                    lunarYearChi = `Tỵ`;
+                    break;
+                case (chi==10):
+                    lunarYearChi = `Ngọ`;
+                    break;
+                case (chi==11):
+                    lunarYearChi = `Mùi`;
+                    break;
+            }            
+            result.innerText = `${lunarYearCan} ${lunarYearChi}`;
+        })        
+    </script>
+  </body>
+</html>
