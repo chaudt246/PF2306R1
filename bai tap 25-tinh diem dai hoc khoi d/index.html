@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row my-2">
+            <div class="col-2">Môn Toán</div>
+            <div class="col-10"><input type="number" onchange="getMathScore(this)"></div>
+        </div>
+        <div class="row my-2">
+            <div class="col-2">Môn Văn</div>
+            <div class="col-10"><input type="number" onchange="getLiteraturehScore(this)"></div>
+        </div>
+        <div class="row my-2">
+            <div class="col-2">Môn Anh</div>
+            <div class="col-10"><input type="number" onchange="getEnglishScore(this)"></div>
+        </div>
+        <div class="row my-2">
+            <div class="col-2">Khu vực</div>
+            <div class="col-10">
+                <select name="area" onclick="getAreaName(this)">
+                    <option value="kv1" selected>KV1</option>
+                    <option value="kv2-nt">KV2-NT</option>
+                    <option value="kv2">KV2</option>
+                    <option value="kv3">KV3</option>
+                </select>
+            </div>
+        </div>
+        <button id="checkBtn" onclick="checkScore()">Tính điểm</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        let math, literature, english ;
+        let result = document.getElementById("result");
+        let fruitName, totalScore;
+        function getAreaName(obj) {
+            areaName = (obj.value);
+        }
+        function getMathScore(obj) {
+            mathScore = Number(obj.value);
+        }
+        function getLiteraturehScore(obj) {
+            literaturehScore = Number(obj.value);
+        }
+        function getEnglishScore(obj) {
+            englishScore = Number(obj.value);
+        }
+
+        checkBtn.addEventListener("click", function () {
+            switch (areaName){       
+              case 'kv2-nt':
+                totalScore = 0.5 + mathScore + literaturehScore + englishScore;
+                break;
+              case 'kv2':
+                totalScore = 0.25 + mathScore + literaturehScore + englishScore;
+                break;
+              case 'kv3':
+                totalScore = 0 + mathScore + literaturehScore + englishScore;
+                break;
+              default:
+                totalScore = 0.75 + mathScore + literaturehScore + englishScore;
+                break;
+              }
+            result.innerText = totalScore;
+        })
+
+
+
+        function add() {
+            result.innerText = "Result Addition: " + (firstNumber + secondNumber);
+        }
+    </script>
+</body>
+</html>
