@@ -1,0 +1,43 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+        <input type="number" min=1 max=12 onchange="getMonth(this)">
+        <button id="checkBtn" onclick="checkDay()">Tính số ngày</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        let month;
+        function getMonth(obj) {
+            month = Number(obj.value);
+        }
+
+        checkBtn.addEventListener("click", function (){
+            switch (month) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 12:
+                    dayOfMonth = `Tháng ${month} có 31 ngày.`;
+                    break;
+                case 2:
+                    dayOfMonth = `Tháng ${month} có 28 hoặc 29 tùy thuộc vào năm nhuận hay năm thường.`;
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    dayOfMonth =`Tháng ${month} có 30 ngày.`;
+                    break;
+            }
+            result.innerText = dayOfMonth;
+        })        
+    </script>
+  </body>
+</html>
