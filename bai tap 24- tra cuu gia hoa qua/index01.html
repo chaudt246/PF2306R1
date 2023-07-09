@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3 >Giá hoa quả</h3>
+    <select name="fruitName" onchange="getFruitName(this)">
+        <option value="" selected>--Chọn tên loại quả--</option>
+        <option value="guava">Ổi</option>
+        <option value="water melon">Dưa Hấu</option>
+        <option value="apple">Táo</option>
+        <option value="mango">Xoài</option>
+        <option value="orange">Cam</option>
+        <option value="rambutan">Chôm Chôm</option>
+        <option value="mangosteen">Măng Cụt</option>
+      </select>
+
+    <button id="checkBtn" onclick="getFruitPrice()">Xem giá</button>
+    <p id="result"></p>
+    <script>
+        let checkBtn = document.getElementById("checkBtn");
+        let result = document.getElementById("result");
+        let fruitName;
+        function getFruitName(obj) {
+            fruitName = (obj.value);
+        }
+        checkBtn.addEventListener("click", function () {
+            switch (fruitName){         
+              case 'guava':
+                fruitPrice = '20,000 VNĐ/kg';
+                break;     
+              case 'water melon':
+                fruitPrice = '20,000 VNĐ/kg';
+                break;
+              case 'apple':
+                fruitPrice = '30,000 VNĐ/kg';
+                break;
+              case 'mango':
+                fruitPrice = '30,000 VNĐ/kg';
+                break;
+              case 'orange':
+                fruitPrice = '40,000 VNĐ/kg';
+                break;
+              case 'rambutan':
+                fruitPrice = '40,000 VNĐ/kg';
+                break;
+              case 'mangosteen':
+                fruitPrice = '50,000 VNĐ/kg';
+                break;
+              default:
+                fruitPrice = 'Hãy chọn tên loại quả cần kiểm tra';
+              }
+            result.innerText = fruitPrice;
+        })
+    </script>
+</body>
+</html>
