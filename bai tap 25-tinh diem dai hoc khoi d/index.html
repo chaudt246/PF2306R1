@@ -8,22 +8,24 @@
 </head>
 <body>
     <div class="container">
+        <h4>Tính điểm đại học khối D</h4>
         <div class="row my-2">
             <div class="col-2">Môn Toán</div>
-            <div class="col-10"><input type="number" onchange="getMathScore(this)"></div>
+            <div class="col-10"><input type="number" min=0 max=10 onchange="getMathScore(this)"></div>
         </div>
         <div class="row my-2">
             <div class="col-2">Môn Văn</div>
-            <div class="col-10"><input type="number" onchange="getLiteraturehScore(this)"></div>
+            <div class="col-10"><input type="number" min=0 max=10 onchange="getLiteraturehScore(this)"></div>
         </div>
         <div class="row my-2">
             <div class="col-2">Môn Anh</div>
-            <div class="col-10"><input type="number" onchange="getEnglishScore(this)"></div>
+            <div class="col-10"><input type="number" min=0 max=10 onchange="getEnglishScore(this)"></div>
         </div>
         <div class="row my-2">
             <div class="col-2">Khu vực</div>
             <div class="col-10">
                 <select name="area" onclick="getAreaName(this)">
+                    <option value="" selected>--Chọn khu vực--</option>
                     <option value="kv1" selected>KV1</option>
                     <option value="kv2-nt">KV2-NT</option>
                     <option value="kv2">KV2</option>
@@ -31,7 +33,7 @@
                 </select>
             </div>
         </div>
-        <button id="checkBtn" onclick="checkScore()">Tính điểm</button>
+        <button id="checkBtn" onclick="checkScore()" class="my-2">Tính điểm</button>
         <p id="result"></p>
     </div>
     <script>
@@ -52,7 +54,7 @@
         }
 
         checkBtn.addEventListener("click", function () {
-            switch (areaName){       
+            switch (areaName){     
               case 'kv2-nt':
                 totalScore = 0.5 + mathScore + literaturehScore + englishScore;
                 break;
@@ -63,17 +65,11 @@
                 totalScore = 0 + mathScore + literaturehScore + englishScore;
                 break;
               default:
-                totalScore = 0.75 + mathScore + literaturehScore + englishScore;
+              totalScore = 0.75 + mathScore + literaturehScore + englishScore;
                 break;
               }
-            result.innerText = totalScore;
+            result.innerText = "Tổng điểm đại học khối D là " + totalScore;
         })
-
-
-
-        function add() {
-            result.innerText = "Result Addition: " + (firstNumber + secondNumber);
-        }
     </script>
 </body>
 </html>
