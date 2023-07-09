@@ -1,0 +1,41 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>        
+    <script>
+        let weight = parseInt(prompt("Hãy nhập cân nặng của bạn"));
+        let height = parseInt(prompt("Hãy nhập chiều cao của bạn"));
+        let bmi = weight / (height ** 2);
+
+        switch (true) {
+            case (bmi > 40):
+                alert("Béo phì độ III");
+                break;
+            case (bmi >= 35):
+                alert("Béo phì độ II");
+                break;
+            case (bmi >= 30):
+                alert("Béo phì độ I");
+                break;
+            case (bmi >= 25):
+                alert("Thừa cân");
+                break;
+            case (bmi >= 18.5):
+                alert("Bình thường");
+                break;
+            case (bmi >= 17):
+                alert("Gầy độ I");
+                break;
+            case (bmi >= 16):
+                alert("Gầy độ II");
+                break;
+            default:
+                alert("Gầy độ III");
+                break;
+        }        
+    </script>
+  </body>
+</html>
