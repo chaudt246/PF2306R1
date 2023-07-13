@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    ISBN (9 số đầu): <input type="number" name="nineFirstDigit" onchange="getNineFirstDigit(this)">
+    <br><br>
+    <button onclick="gen()">Generate 10 số ISBN</button>
+    <p id="result"></p>
+    <script>
+      let nineFirstDigit, tenthDigit;
+      let result = document.getElementById('result');
+      function getNineFirstDigit(obj) {
+          let nineFirstDigit = obj.value;
+          switch (String(nineFirstDigit[0])) {
+              case "0":
+                  tenthDigit = ((nineFirstDigit[0] * 1) + (nineFirstDigit[1] * 2) + (nineFirstDigit[2] * 3) + (nineFirstDigit[3] * 4) + (nineFirstDigit[4] * 5) + (nineFirstDigit[5] * 6) + (nineFirstDigit[6] * 7) + (nineFirstDigit[7] * 8) + (nineFirstDigit[8] * 9)) % 11;
+                  break;
+              default:
+                  tenthDigit = ((nineFirstDigit[0] * 2) + (nineFirstDigit[1] * 3) + (nineFirstDigit[2] * 4) + (nineFirstDigit[3] * 5) + (nineFirstDigit[4] * 6) + (nineFirstDigit[5] * 7) + (nineFirstDigit[6] * 8) + (nineFirstDigit[7] * 8)) % 11;
+                  break;
+          }
+          // console.log("M = ", maths);
+          // console.log("L = ", literature);
+          // console.log("E = ", english);
+      }
+      function getArea(obj) {
+          let area = obj.value;
+          switch (area) {
+              case "KV1":
+                  bonus = 0.75;
+                  break;
+              case "KV2":
+                  bonus = 0.5;
+                  break;
+              case "KV2-NT":
+                  bonus = 0.25;
+                  break;
+              default:
+                  bonus = 0;
+                  break;
+          }
+          // console.log("Area: ", area, bonus);
+      }
+      function gen() {
+          result.innerHTML = `Total score is ${total}`;
+      }
+  </script>
+</body>
+</html>
