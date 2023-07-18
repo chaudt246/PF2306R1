@@ -15,7 +15,7 @@
         </div>
         <div class="row my-2">
             <div class="col-2">Môn Văn</div>
-            <div class="col-10"><input type="number" min=0 max=10 onchange="getLiteraturehScore(this)"></div>
+            <div class="col-10"><input type="number" min=0 max=10 onchange="getliteratureScore(this)"></div>
         </div>
         <div class="row my-2">
             <div class="col-2">Môn Anh</div>
@@ -26,9 +26,9 @@
             <div class="col-10">
                 <select name="area" onclick="getAreaName(this)">
                     <option value="" selected>--Chọn khu vực--</option>
-                    <option value="kv1" selected>KV1</option>
+                    <option value="kv1">KV1</option>
                     <option value="kv2-nt">KV2-NT</option>
-                    <option value="kv2">KV2</option>
+                    <option value="kv2">KV2</option>f 
                     <option value="kv3">KV3</option>
                 </select>
             </div>
@@ -37,38 +37,41 @@
         <p id="result"></p>
     </div>
     <script>
-        let math, literature, english ;
+        let mathScore, literatureScore, englishScore;
         let result = document.getElementById("result");
-        let fruitName, totalScore;
+        let totalScore;
         function getAreaName(obj) {
-            areaName = (obj.value);
+            areaName = obj.value;
         }
         function getMathScore(obj) {
-            mathScore = Number(obj.value);
+            mathScore = parseFloat(obj.value);
         }
-        function getLiteraturehScore(obj) {
-            literaturehScore = Number(obj.value);
+        function getliteratureScore(obj) {
+            literatureScore = parseFloat(obj.value);
         }
         function getEnglishScore(obj) {
-            englishScore = Number(obj.value);
+            englishScore = parseFloat(obj.value);
         }
 
         checkBtn.addEventListener("click", function () {
-            switch (areaName){     
+            switch (areaName){  
+              case 'kv1':
+                totalScore = `Tổng điểm đại học khối D là ${0.75 + mathScore + literatureScore + englishScore}`;
+                break;   
               case 'kv2-nt':
-                totalScore = 0.5 + mathScore + literaturehScore + englishScore;
+                totalScore = `Tổng điểm đại học khối D là ${0.5 + mathScore + literatureScore + englishScore}`;
                 break;
               case 'kv2':
-                totalScore = 0.25 + mathScore + literaturehScore + englishScore;
+                totalScore = `Tổng điểm đại học khối D là ${0.25 + mathScore + literatureScore + englishScore}`;
                 break;
               case 'kv3':
-                totalScore = 0 + mathScore + literaturehScore + englishScore;
+                totalScore = `Tổng điểm đại học khối D là ${0 + mathScore + literatureScore + englishScore}`;
                 break;
               default:
-              totalScore = 0.75 + mathScore + literaturehScore + englishScore;
+              totalScore = "Hãy chọn khu vực";
                 break;
               }
-            result.innerText = "Tổng điểm đại học khối D là " + totalScore;
+            result.innerText = totalScore;
         })
     </script>
 </body>
