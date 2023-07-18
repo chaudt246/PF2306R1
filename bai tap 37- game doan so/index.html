@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>    
+  <button id="checkBtn" onclick="playGame()">Chơi</button>
+  <p id="result"></p>
+    <script>
+      let value = null;
+      checkBtn.addEventListener("click", function () {
+        let max = parseInt(prompt("Nhập vào số lớn nhất của khoảng bạn muốn chọn "));
+        let randomNumber = Math.floor(Math.random() * max);
+        do {
+          value = parseInt(prompt("Nhập vào số bạn muốn chọn "));
+          } while (value !== randomNumber);
+        document.getElementById("result").innerHTML = "Chúc mừng. Bạn đã đoán đúng";
+      });
+  </script>
+</body>
+</html>
