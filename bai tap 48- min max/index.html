@@ -1,0 +1,32 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Min Max</title>
+</head>
+
+<body>
+  <h2>DOm Manipulation</h2>
+  <div>
+    <span id="one" name="first">First Span</span>
+    <span id="two" name="second">Second Span</span>
+  </div>
+  <script>
+    const div = document.querySelector('div');
+    const spanOne = document.getElementById('one');
+    const spanTwo = document.getElementById('two');
+
+    console.log(spanOne.getAttribute('name'));
+    spanOne.setAttribute('name', 'abcde');
+    spanOne.removeAttribute('name');
+    spanOne.id = '11111111111aaa';
+    spanOne.classList.add('new-class');
+    spanOne.classList.remove('new-class');
+    spanOne.style.color = 'red';
+    spanOne.style.backgroundColor = 'yellow';
+
+  </script>
+</body>
+
+</html>
