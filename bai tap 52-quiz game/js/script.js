@@ -9,6 +9,8 @@ const option_list = document.querySelector(".option_list");
 const time_line = document.querySelector("header .time_line");
 const timeText = document.querySelector(".timer .time_left_txt");
 const timeCount = document.querySelector(".timer .timer_sec");
+let myAudioPlaying = document.querySelector('#audio_playing')
+let myAudioCongra = document.querySelector('#audio_congra')
 
 // if startQuiz button clicked
 start_btn.onclick = ()=>{
@@ -28,6 +30,7 @@ continue_btn.onclick = ()=>{
     queCounter(1); //passing 1 parameter to queCounter
     startTimer(15); //calling startTimer function
     startTimerLine(0); //calling startTimerLine function
+    myAudioPlaying.play(); //play music
 }
 
 let timeValue =  15;
@@ -43,6 +46,8 @@ const quit_quiz = result_box.querySelector(".buttons .quit");
 
 // if restartQuiz button clicked
 restart_quiz.onclick = ()=>{
+    myAudioCongra.pause(); //stop congratulation music
+    myAudioPlaying.play(); //start playing music
     quiz_box.classList.add("activeQuiz"); //show quiz box
     result_box.classList.remove("activeResult"); //hide result box
     timeValue = 15; 
@@ -124,18 +129,14 @@ function optionSelected(answer){
         userScore += 1; //upgrading score value with 1
         answer.classList.add("correct"); //adding green color to correct selected option
         answer.insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to correct selected option
-        console.log("Câu trả lời đúng.");
-        console.log("Số câu bạn đã trả lời đúng là " + userScore);
     }else{
         answer.classList.add("incorrect"); //adding red color to correct selected option
         answer.insertAdjacentHTML("beforeend", crossIconTag); //adding cross icon to correct selected option
-        console.log("Câu trả lời sai.");
 
         for(i=0; i < allOptions; i++){
             if(option_list.children[i].textContent == correcAns){ //if there is an option which is matched to an array answer 
                 option_list.children[i].setAttribute("class", "option correct"); //adding green color to matched option
                 option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to matched option
-                console.log("Câu trả lời đúng tự động chọn.");
             }
         }
     }
@@ -146,6 +147,8 @@ function optionSelected(answer){
 }
 
 function showResult(){
+    myAudioPlaying.pause(); //stop playing music
+    myAudioCongra.play(); //start congratulation music
     info_box.classList.remove("activeInfo"); //hide info box
     quiz_box.classList.remove("activeQuiz"); //hide quiz box
     result_box.classList.add("activeResult"); //show result box
@@ -183,7 +186,6 @@ function startTimer(time){
                 if(option_list.children[i].textContent == correcAns){ //if there is an option which is matched to an array answer
                     option_list.children[i].setAttribute("class", "option correct"); //adding green color to matched option
                     option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to matched option
-                    console.log("Hết thời gian");
                 }
             }
             for(i=0; i < allOptions; i++){

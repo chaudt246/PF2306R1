@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <script>
+        let starArr = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        let constellationArr = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+        let starName;
+        function checkConstellation(starName){
+            if (starName){
+                for (var i = 0; i < starArr.length; i++) {
+                    if (starName === starArr[i]){
+                        alert(constellationArr[i]);
+                    } else if (starName="") {
+                        alert("Bạn chưa nhập tên ngôi sao. Hãy nhập tên ngôi sao");
+                    } else {
+                        alert("Bạn chưa nhập chính xác tên ngôi sao. Hãy nhập chính xác tên ngôi sao");
+                    }
+                }  
+        }
+    }
+        starName = String(prompt("Hãy nhập tên ngôi sao"));
+        checkConstellation();
+    </script>
+  </script>
+</body>
+</html>
