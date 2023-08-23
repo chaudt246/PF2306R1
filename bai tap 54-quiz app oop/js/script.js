@@ -76,11 +76,14 @@ class QuizApp {
       if (userAns == correctAns) {
         this.userScore += 1;
         answer.classList.add("correct");
+        answer.innerHTML = `<span>${userAns}</span><i class="fas fa-check"></i>`;
       } else {
         answer.classList.add("incorrect");
+        answer.innerHTML = `<span>${userAns}</span><i class="fas fa-times"></i>`;
         for (let i = 0; i < allOptions; i++) {
           if (this.optionList.children[i].textContent == correctAns) {
             this.optionList.children[i].classList.add("correct");
+            this.optionList.children[i].innerHTML = `<span>${correctAns}</span><i class="fas fa-check"></i>`;
           }
         }
       }
@@ -90,24 +93,31 @@ class QuizApp {
       this.nextButton.classList.add("show");
     }
   
-    nextQuestion() {
-        if (this.queCount < questions.length - 1) {
-          this.queCount++;
-          this.queNumb++;
-          this.showQuestions(this.queCount);
-          this.queCounter(this.queNumb);
-          clearInterval(this.counter);
-          clearInterval(this.counterLine);
-          this.startTimer(this.timeValue);
-          this.startTimerLine(this.widthValue);
-          this.timeText.textContent = "Thời gian còn lại";
-          this.nextButton.classList.remove("show");
-        } else {
-          clearInterval(this.counter);
-          clearInterval(this.counterLine);
-          this.showResult();
-        }
-      }
+    
+nextQuestion() {
+  if (this.queCount < questions.length - 1) {
+    this.queCount++;
+    this.queNumb++;
+    this.showQuestions(this.queCount);
+    this.queCounter(this.queNumb);
+    clearInterval(this.counter);
+    clearInterval(this.counterLine);
+    this.startTimer(this.timeValue);
+    this.startTimerLine(this.widthValue);
+    this.timeText.textContent = "Thời gian còn lại";
+    this.nextButton.classList.remove("show");
+    this.optionList.classList.remove("disabled");
+  } else {
+    clearInterval(this.counter);
+    clearInterval(this.counterLine);
+    this.showResult();
+  }
+  const allOptions = this.optionList.children.length;
+  for (let i = 0; i < allOptions; i++) {
+    this.optionList.children[i].classList.remove("correct", "incorrect");
+  }
+  this.nextButton.classList.remove("show");
+}
     
       showResult() {
         this.myAudioPlaying.pause();

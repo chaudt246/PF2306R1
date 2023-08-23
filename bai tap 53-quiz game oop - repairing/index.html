@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Quiz App</title>
+</head>
+
+<body>
+    <div class="quiz_container">
+        <div class="quiz_box">
+            <header>
+                <h2 class="title">Quiz App</h2>
+                <div class="timer">
+                    <div class="time_left_txt">Time Left</div>
+                    <div class="timer_sec">10</div>
+                </div>
+                <div class="time_line"></div>
+            </header>
+            <section>
+                <h3 class="que_text" id="question">Question goes here</h3>
+                <div class="option_list" id="options">
+                    <!-- Options go here -->
+                </div>
+            </section>
+            <footer>
+                <div class="total_que">
+                    <p><span id="current_question">1</span> of <span id="total_questions">5</span> Questions</p>
+                </div>
+                <button class="next-btn" id="submit-btn">Submit</button>
+            </footer>
+        </div>
+        <div class="result_box" id="result-box">
+            <div class="icon"><i class="fas fa-check-circle"></i></div>
+            <div class="complete_text">You've completed the Quiz!</div>
+            <div class="score_text">
+                <p>Your Score: <span id="score">0</span> / <span id="total_questions">5</span></p>
+            </div>
+            <div class="buttons">
+                <button class="restart" id="restart">Restart Quiz</button>
+                <button class="quit">Quit Quiz</button>
+            </div>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
