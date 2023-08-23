@@ -370,12 +370,12 @@ footer button.show{
     background: #0263ca;
 }
 
-.buttons button.quit{
+.buttons button.stop{
     color: #007bff;
     background: #fff;
 }
 
-.buttons button.quit:hover{
+.buttons button.stop:hover{
     color: #fff;
     background: #007bff;
 }
