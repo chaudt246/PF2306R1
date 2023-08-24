@@ -10,6 +10,8 @@ class QuizApp {
       this.timeLine = document.querySelector("header .time_line");
       this.timeText = document.querySelector(".timer .time_left_txt");
       this.timeCount = document.querySelector(".timer .timer_sec");
+      this.restartButton = document.querySelector(".result_box .buttons .restart");
+      this.stopButton = document.querySelector(".result_box .buttons .stop");
       this.myAudioPlaying = document.querySelector('#audio_playing');
       this.myAudioCongra = document.querySelector('#audio_congra');
       
@@ -25,10 +27,6 @@ class QuizApp {
       this.startButton.addEventListener("click", () => this.showInfoBox());
       this.exitButton.addEventListener("click", () => this.hideInfoBox());
       this.continueButton.addEventListener("click", () => this.startQuiz());
-
-      this.restartButton = document.querySelector(".result_box .buttons .restart");
-      this.stopButton = document.querySelector(".result_box .buttons .stop");
-
       this.restartButton.addEventListener("click", () => this.restartQuiz());
       this.stopButton.addEventListener("click", () => this.stopApp());
     }
@@ -94,30 +92,30 @@ class QuizApp {
     }
   
     
-nextQuestion() {
-  if (this.queCount < questions.length - 1) {
-    this.queCount++;
-    this.queNumb++;
-    this.showQuestions(this.queCount);
-    this.queCounter(this.queNumb);
-    clearInterval(this.counter);
-    clearInterval(this.counterLine);
-    this.startTimer(this.timeValue);
-    this.startTimerLine(this.widthValue);
-    this.timeText.textContent = "Thời gian còn lại";
-    this.nextButton.classList.remove("show");
-    this.optionList.classList.remove("disabled");
-  } else {
-    clearInterval(this.counter);
-    clearInterval(this.counterLine);
-    this.showResult();
-  }
-  const allOptions = this.optionList.children.length;
-  for (let i = 0; i < allOptions; i++) {
-    this.optionList.children[i].classList.remove("correct", "incorrect");
-  }
-  this.nextButton.classList.remove("show");
-}
+      nextQuestion() {
+        if (this.queCount < questions.length - 1) {
+          this.queCount++;
+          this.queNumb++;
+          this.showQuestions(this.queCount);
+          this.queCounter(this.queNumb);
+          clearInterval(this.counter);
+          clearInterval(this.counterLine);
+          this.startTimer(this.timeValue);
+          this.startTimerLine(this.widthValue);
+          this.timeText.textContent = "Thời gian còn lại";
+          this.nextButton.classList.remove("show");
+          this.optionList.classList.remove("disabled");
+        } else {
+          clearInterval(this.counter);
+          clearInterval(this.counterLine);
+          this.showResult();
+        }
+        const allOptions = this.optionList.children.length;
+        for (let i = 0; i < allOptions; i++) {
+          this.optionList.children[i].classList.remove("correct", "incorrect");
+        }
+        this.nextButton.classList.remove("show");
+      }
     
       showResult() {
         this.myAudioPlaying.pause();
