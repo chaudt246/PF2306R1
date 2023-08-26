@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci series</title>
+</head>
+
+<body>
+    <script>
+        //Khai bao bien
+        let fibonacciQuantity, fibonacci, count;
+        let index = 1;
+
+        //Khai bao ham tra ve cac so fibonacci
+        function checkFibonacci(n) {
+            if (n <= 2) {
+                return 1;
+            } else {
+                return checkFibonacci(n - 1) + checkFibonacci(n - 2);
+            }
+        }
+
+        //Yeu cau nguoi dung nhap do dai chuoi fibonacci
+        do {
+            fibonacciLength = parseInt(prompt("Nhập vào độ dài chuỗi Fibonacce."));
+        } while (fibonacciLength <= 0);
+
+        //Goi ham de xuat ra cac so fibonacci
+        while (index <= fibonacciLength) {
+            fibonacci = checkFibonacci(index);
+            document.write("Số Fibonacci thứ " + index + " là " + fibonacci + "<br>");
+            index++;
+        }
+    </script>
+</body>
+
+</html>
